@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Range
+namespace Classes
 {
-    public class Range
+    public class Range : IPattern
     {
         readonly char start;
         readonly char end;
@@ -22,12 +22,7 @@ namespace Range
                 return false;
             }
 
-            if(text[0] < start || text[0] > end)
-            {
-                return false;
-            }
-
-            return true;
+            return start <= text[0] && text[0] <= end;
         }
     }
 }

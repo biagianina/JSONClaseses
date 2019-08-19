@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Range
+namespace Classes
 {
     class Program
     {

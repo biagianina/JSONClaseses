@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Range
+namespace Classes
 {
-    public class Character
+    public class Character : IPattern
     {
         readonly char pattern;
 
