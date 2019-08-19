@@ -18,5 +18,12 @@ namespace Range.Tests
             var digit = new Range('a', 'f');
             Assert.True(digit.Match("abc"));
         }
+
+        [Fact]
+        public void ReturnsFalseForStringStartingWithIncorrectChar()
+        {
+            var digit = new Range('a', 'f');
+            Assert.False(digit.Match("1bc"));
+        }
     }
 }
