@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes", "Range\Classes.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Range.Tests", "Range.Tests\Range.Tests.csproj", "{93BD7518-68CD-459D-BEF6-9F4906ACAB74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character.Tests", "Character.Tests\Character.Tests.csproj", "{FB195C12-0D65-4465-ACBA-86EFA30D274F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Character.Tests", "Character.Tests\Character.Tests.csproj", "{FB195C12-0D65-4465-ACBA-86EFA30D274F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Choice.Tests", "Choice.Tests\Choice.Tests.csproj", "{3657CAB8-A10A-418D-935A-613B8F8176C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Choice.Tests", "Choice.Tests\Choice.Tests.csproj", "{3657CAB8-A10A-418D-935A-613B8F8176C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Match.Tests", "Match.Tests\Match.Tests.csproj", "{E51F9F60-A87A-40D6-85FC-7F1EF92B170B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3657CAB8-A10A-418D-935A-613B8F8176C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3657CAB8-A10A-418D-935A-613B8F8176C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3657CAB8-A10A-418D-935A-613B8F8176C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E51F9F60-A87A-40D6-85FC-7F1EF92B170B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51F9F60-A87A-40D6-85FC-7F1EF92B170B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51F9F60-A87A-40D6-85FC-7F1EF92B170B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51F9F60-A87A-40D6-85FC-7F1EF92B170B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

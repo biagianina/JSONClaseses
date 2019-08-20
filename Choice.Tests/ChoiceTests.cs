@@ -12,7 +12,8 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.False(digit.Match(""));
+            Assert.False(digit.Match("").Succes());
+            Assert.Equal("", digit.Match("").RemainingText());
         }
 
         [Fact]
@@ -22,7 +23,8 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.True(digit.Match("012"));
+            Assert.True(digit.Match("012").Succes());
+            Assert.Equal("12", digit.Match("012").RemainingText());
         }
 
         [Fact]
@@ -32,7 +34,8 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.True(digit.Match("12"));
+            Assert.True(digit.Match("12").Succes());
+            Assert.Equal("2", digit.Match("12").RemainingText());
         }
 
         [Fact]
@@ -42,7 +45,26 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.False(digit.Match("a12"));
+            Assert.False(digit.Match("a12").Succes());
+            Assert.Equal("a12", digit.Match("a12").RemainingText());
+        }
+
+        [Fact]
+        public void ReturnsFalseForAStringContainingIncorrectUNICODE()
+        {
+            var digit = new Choice(
+                new Character('0'),
+                new Range('1', '9')
+                );
+            var hex = new Choice(
+                digit,
+                new Choice(
+                    new Range('a', 'f'),
+                    new Range('A', 'F')
+                    )
+                  );
+            Assert.False(hex.Match("G12").Succes());
+            Assert.Equal("G01", hex.Match("G01").RemainingText());
         }
     }
 }

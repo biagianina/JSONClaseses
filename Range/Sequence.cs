@@ -4,27 +4,31 @@ using System.Text;
 
 namespace Classes
 {
-    public class Choice : IPattern
+    public class Sequence : IPattern
     {
         readonly IPattern[] patterns;
 
-        public Choice(params IPattern[] patterns)
+        public Sequence(params IPattern[] patterns)
         {
             this.patterns = patterns;
         }
 
         public IMatch Match(string text)
         {
+            string originalText = text;
             foreach (var pattern in patterns)
             {
                 if (pattern.Match(text).Succes())
                 {
-                    return new Match(true, text.Substring(1));
+                    text = pattern.Match(text).RemainingText();
+                }
+                else
+                {
+                    return new Match(false, originalText);
                 }
             }
 
-            return new Match(false, text);
+            return new Match(true, text);
         }
-
     }
 }

@@ -15,14 +15,16 @@ namespace Classes
             this.end = end;
         }
 
-        public bool Match(string text)
+        public IMatch Match(string text)
         {
             if (string.IsNullOrEmpty(text))
             {
-                return false;
+                return new Match(false, text);
             }
 
-            return start <= text[0] && text[0] <= end;
+            return start <= text[0] && text[0] <= end 
+                ? new Match(true, text.Substring(1)) 
+                : new Match(false, text);
         }
     }
 }

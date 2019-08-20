@@ -9,21 +9,24 @@ namespace Classes.Tests
         public void ReturnsFalseForEmptyString()
         {
             var pattern = new Character('a');
-            Assert.False(pattern.Match(""));
+            Assert.False(pattern.Match("").Succes());
+            Assert.Equal("", pattern.Match("").RemainingText());
         }
 
         [Fact]
         public void ReturnsTrueForCorrectString()
         {
             var pattern = new Character('a');
-            Assert.True(pattern.Match("abc"));
+            Assert.True(pattern.Match("abc").Succes());
+            Assert.Equal("bc", pattern.Match("abc").RemainingText());
         }
 
         [Fact]
-        public void ReturnsFalseForCorrectString()
+        public void ReturnsFalseFoIncorrectString()
         {
             var pattern = new Character('a');
-            Assert.False(pattern.Match("bac"));
+            Assert.False(pattern.Match("bac").Succes());
+            Assert.Equal("bac", pattern.Match("bac").RemainingText());
         }
     }
 }
