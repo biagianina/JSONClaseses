@@ -16,16 +16,16 @@ namespace Classes
         public IMatch Match(string text)
         {
             string originalText = text;
+     
             foreach (var pattern in patterns)
             {
-                if (pattern.Match(text).Succes())
-                {
-                    text = pattern.Match(text).RemainingText();
-                }
-                else
+                var match = pattern.Match(text);
+                if (!match.Succes())
                 {
                     return new Match(false, originalText);
                 }
+
+                text = match.RemainingText();
             }
 
             return new Match(true, text);
