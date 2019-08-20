@@ -15,18 +15,12 @@ namespace Classes
 
         public IMatch Match(string text)
         {
-            int stop = prefix.Length;
             if (string.IsNullOrEmpty(text))
             {
                 return new Match(false, text);
             }
 
-            if(text.Substring(0, stop) == prefix)
-            {
-                return new Match(true, text.Substring(stop));
-            }
-
-            return new Match(false, text);
+            return text.StartsWith(prefix) ? new Match(true, text.Substring(prefix.Length)) : new Match(false, text);
         }
     }
 }
