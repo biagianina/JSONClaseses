@@ -4,21 +4,23 @@ using System.Text;
 
 namespace Classes
 {
-    public class OneOrMore : IPattern
+    public class List
     {
         readonly IPattern pattern;
+        readonly IPattern separator;
         readonly Many many;
 
-        public OneOrMore(IPattern pattern)
+        public List(IPattern pattern, IPattern separator)
         {
             this.pattern = pattern;
-            this.many = new Many(pattern);
+            this.separator = separator;
+            this.many = new Many(new Sequence(separator, pattern));
         }
 
         public IMatch Match(string text)
         {
             var match = pattern.Match(text);
-            return match.Succes() ? many.Match(match.RemainingText()) : new Match(false, text);
+            return !match.Succes() ? new Match(true, text) : many.Match(match.RemainingText());
         }
     }
 }
