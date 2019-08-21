@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Classes
 {
-    public class Many : IPattern
+    public class Many 
     {
         readonly IPattern pattern;
 
