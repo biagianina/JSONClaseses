@@ -15,20 +15,18 @@ namespace Classes
 
         public IMatch Match(string text)
         {
-            string originalText = text;
-     
+            IMatch match = new Match(true, text);
+
             foreach (var pattern in patterns)
             {
-                var match = pattern.Match(text);
+                match = pattern.Match(match.RemainingText());
                 if (!match.Succes())
                 {
-                    return new Match(false, originalText);
+                    return new Match(false, text);
                 }
-
-                text = match.RemainingText();
             }
 
-            return new Match(true, text);
+            return match;
         }
     }
 }

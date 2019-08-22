@@ -7,12 +7,10 @@ namespace Classes
     public class OneOrMore : IPattern
     {
         readonly IPattern pattern;
-        readonly Many many;
 
         public OneOrMore(IPattern pattern)
         {
-            this.many = new Many(pattern);
-            this.pattern = new Sequence(pattern, many);
+            this.pattern = new Sequence(pattern, new Many(pattern));
         }
 
         public IMatch Match(string text)

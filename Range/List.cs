@@ -7,14 +7,15 @@ namespace Classes
     public class List
     {
         readonly IPattern pattern;
-        readonly IPattern separator;
-        readonly Many many;
 
         public List(IPattern pattern, IPattern separator)
         {
-            this.separator = separator;
-            this.many = new Many(new Sequence(separator, pattern));
-            this.pattern = new Many(new Sequence(pattern, many));
+            this.pattern = new Optional(
+                new Sequence(
+                    pattern, 
+                    new Many(new Sequence(separator, pattern))
+                )
+            );
         }
 
         public IMatch Match(string text)

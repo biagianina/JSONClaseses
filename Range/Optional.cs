@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Classes
 {
-    public class Optional
+    public class Optional : IPattern
     {
         IPattern pattern;
 
