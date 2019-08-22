@@ -11,14 +11,13 @@ namespace Classes
 
         public OneOrMore(IPattern pattern)
         {
-            this.pattern = pattern;
             this.many = new Many(pattern);
+            this.pattern = new Sequence(pattern, many);
         }
 
         public IMatch Match(string text)
         {
-            var match = pattern.Match(text);
-            return match.Succes() ? many.Match(match.RemainingText()) : new Match(false, text);
+            return pattern.Match(text);
         }
     }
 }

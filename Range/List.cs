@@ -12,15 +12,14 @@ namespace Classes
 
         public List(IPattern pattern, IPattern separator)
         {
-            this.pattern = pattern;
             this.separator = separator;
             this.many = new Many(new Sequence(separator, pattern));
+            this.pattern = new Many(new Sequence(pattern, many));
         }
 
         public IMatch Match(string text)
         {
-            var match = pattern.Match(text);
-            return !match.Succes() ? new Match(true, text) : many.Match(match.RemainingText());
+            return pattern.Match(text);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Classes
         {
             var match = pattern.Match(text);
 
-            return match.Succes() ? new Match(true, match.RemainingText()) : new Match(true, text);
+            return new Match(true, match.RemainingText());
         }
     }
 }

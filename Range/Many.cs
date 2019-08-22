@@ -17,17 +17,11 @@ namespace Classes
         {
             var match = pattern.Match(text);
 
-            if (!match.Succes())
+            while (match.Succes())
             {
-                return new Match(true, text);
+                match = pattern.Match(match.RemainingText());
             }
-            else
-            {
-                while (match.Succes())
-                {
-                    match = pattern.Match(match.RemainingText());
-                }
-            }
+
             return new Match(true, match.RemainingText());
         }
     }
