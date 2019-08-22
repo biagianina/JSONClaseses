@@ -9,7 +9,7 @@ namespace Classes.Tests
         public void ReturnsFalseAndEmptyForEmptyString()
         {
             var e = new Any("eE");
-            Assert.False(e.Match("").Succes());
+            Assert.False(e.Match("").Success());
             Assert.Equal("", e.Match("").RemainingText());
         }
 
@@ -17,7 +17,7 @@ namespace Classes.Tests
         public void ReturnsTrueAndRemainingForShortString()
         {
             var e = new Any("eE");
-            Assert.True(e.Match("ea").Succes());
+            Assert.True(e.Match("ea").Success());
             Assert.Equal("a", e.Match("ea").RemainingText());
         }
 
@@ -25,7 +25,7 @@ namespace Classes.Tests
         public void ReturnsFalseAndTextForShortString()
         {
             var e = new Any("eE");
-            Assert.False(e.Match("a").Succes());
+            Assert.False(e.Match("a").Success());
             Assert.Equal("a", e.Match("a").RemainingText());
         }
 
@@ -33,7 +33,7 @@ namespace Classes.Tests
         public void ReturnsCorrectStringForSignString()
         {
             var sign = new Any("-+");
-            Assert.True(sign.Match("+3").Succes());
+            Assert.True(sign.Match("+3").Success());
             Assert.Equal("3", sign.Match("+3").RemainingText());
         }
 
@@ -41,7 +41,7 @@ namespace Classes.Tests
         public void ReturnsCorrectForIncorrectSignString()
         {
             var sign = new Any("-+");
-            Assert.False(sign.Match("2").Succes());
+            Assert.False(sign.Match("2").Success());
             Assert.Equal("2", sign.Match("2").RemainingText());
         }
     }

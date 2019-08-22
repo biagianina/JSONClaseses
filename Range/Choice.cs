@@ -17,9 +17,10 @@ namespace Classes
         {
             foreach (var pattern in patterns)
             {
-                if (pattern.Match(text).Succes())
+                IMatch match = pattern.Match(text);
+                if (match.Success())
                 {
-                    return new Match(true, text.Substring(1));
+                    return match;
                 }
             }
 

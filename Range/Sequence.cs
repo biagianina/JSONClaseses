@@ -20,7 +20,7 @@ namespace Classes
             foreach (var pattern in patterns)
             {
                 match = pattern.Match(match.RemainingText());
-                if (!match.Succes())
+                if (!match.Success())
                 {
                     return new Match(false, text);
                 }

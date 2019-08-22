@@ -10,7 +10,7 @@ namespace Classes.Tests
         {
             var a = new OneOrMore(
                 new Range('0', '9'));
-            Assert.False(a.Match("").Succes());
+            Assert.False(a.Match("").Success());
             Assert.Equal("", a.Match("").RemainingText());
         }
 
@@ -19,7 +19,7 @@ namespace Classes.Tests
         {
             var a = new OneOrMore(
                 new Range('0', '9'));
-            Assert.True(a.Match("123").Succes());
+            Assert.True(a.Match("123").Success());
             Assert.Equal("", a.Match("123").RemainingText());
         }
 
@@ -28,7 +28,7 @@ namespace Classes.Tests
         {
             var a = new OneOrMore(
                 new Range('0', '9'));
-            Assert.True(a.Match("12a").Succes());
+            Assert.True(a.Match("12a").Success());
             Assert.Equal("a", a.Match("12a").RemainingText());
         }
 
@@ -37,7 +37,7 @@ namespace Classes.Tests
         {
             var a = new OneOrMore(
                 new Range('0', '9'));
-            Assert.False(a.Match("bc").Succes());
+            Assert.False(a.Match("bc").Success());
             Assert.Equal("bc", a.Match("bc").RemainingText());
         }
 

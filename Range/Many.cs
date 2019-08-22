@@ -17,7 +17,7 @@ namespace Classes
         {
             var match = pattern.Match(text);
 
-            while (match.Succes())
+            while (match.Success())
             {
                 match = pattern.Match(match.RemainingText());
             }

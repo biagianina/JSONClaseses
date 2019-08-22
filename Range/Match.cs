@@ -15,7 +15,7 @@ namespace Classes
             this.text = text;
         }
 
-        public bool Succes()
+        public bool Success()
         {
             return success;
         }

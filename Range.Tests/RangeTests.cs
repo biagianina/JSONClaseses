@@ -9,7 +9,7 @@ namespace Classes.Tests
         public void ReturnsFalseForEmptyString()
         {
             var digit = new Range('a', 'f');
-            Assert.False(digit.Match("").Succes());
+            Assert.False(digit.Match("").Success());
             Assert.Equal("", digit.Match("").RemainingText());
         }
 
@@ -17,7 +17,7 @@ namespace Classes.Tests
         public void ReturnsTrueForCorrectString()
         {
             var digit = new Range('a', 'f');
-            Assert.True(digit.Match("abc").Succes());
+            Assert.True(digit.Match("abc").Success());
             Assert.Equal("bc", digit.Match("abc").RemainingText());
         }
 
@@ -25,7 +25,7 @@ namespace Classes.Tests
         public void ReturnsFalseForStringStartingWithIncorrectChar()
         {
             var digit = new Range('a', 'f');
-            Assert.False(digit.Match("1bc").Succes());
+            Assert.False(digit.Match("1bc").Success());
             Assert.Equal("1bc", digit.Match("1bc").RemainingText());
         }
     }

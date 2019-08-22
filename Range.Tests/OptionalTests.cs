@@ -10,7 +10,7 @@ namespace Classes.Tests
         {
             var a = new Optional(
                 new Character('a'));
-            Assert.True(a.Match("").Succes());
+            Assert.True(a.Match("").Success());
             Assert.Equal("", a.Match("").RemainingText());
         }
 
@@ -19,7 +19,7 @@ namespace Classes.Tests
         {
             var a = new Optional(
                 new Character('a'));
-            Assert.True(a.Match("abc").Succes());
+            Assert.True(a.Match("abc").Success());
             Assert.Equal("bc", a.Match("abc").RemainingText());
         }
 
@@ -28,7 +28,7 @@ namespace Classes.Tests
         {
             var a = new Optional(
                 new Character('a'));
-            Assert.True(a.Match("aabc").Succes());
+            Assert.True(a.Match("aabc").Success());
             Assert.Equal("abc", a.Match("aabc").RemainingText());
         }
 
@@ -37,7 +37,7 @@ namespace Classes.Tests
         {
             var sign = new Optional(
                 new Character('-'));
-            Assert.True(sign.Match("-123").Succes());
+            Assert.True(sign.Match("-123").Success());
             Assert.Equal("123", sign.Match("-123").RemainingText());
         }
 
@@ -46,7 +46,7 @@ namespace Classes.Tests
         {
             var sign = new Optional(
                 new Character('-'));
-            Assert.True(sign.Match("123").Succes());
+            Assert.True(sign.Match("123").Success());
             Assert.Equal("123", sign.Match("123").RemainingText());
         }
     }

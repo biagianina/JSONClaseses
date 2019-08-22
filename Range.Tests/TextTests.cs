@@ -9,7 +9,7 @@ namespace Classes.Tests
         public void ReturnsFalseAndEmptyForEmptyString()
         {
             var tr = new Text("true");
-            Assert.False(tr.Match("").Succes());
+            Assert.False(tr.Match("").Success());
             Assert.Equal("", tr.Match("").RemainingText());
         }
 
@@ -17,7 +17,7 @@ namespace Classes.Tests
         public void ReturnsTrueAndEmptyForTrueString()
         {
             var tr = new Text("true");
-            Assert.True(tr.Match("true").Succes());
+            Assert.True(tr.Match("true").Success());
             Assert.Equal("", tr.Match("true").RemainingText());
         }
 
@@ -25,7 +25,7 @@ namespace Classes.Tests
         public void ReturnsTrueAndXForTrueandXString()
         {
             var tr = new Text("true");
-            Assert.True(tr.Match("trueX").Succes());
+            Assert.True(tr.Match("trueX").Success());
             Assert.Equal("X", tr.Match("trueX").RemainingText());
         }
 
@@ -33,7 +33,7 @@ namespace Classes.Tests
         public void ReturnsTrueAndTextForEmptyPrefix()
         {
             var empty = new Text("");
-            Assert.True(empty.Match("true").Succes());
+            Assert.True(empty.Match("true").Success());
             Assert.Equal("true", empty.Match("true").RemainingText());
         }
     }

@@ -10,7 +10,7 @@ namespace Classes.Tests
         {
             var a = new List(new Range('0', '9'), new Character(','));
 
-            Assert.True(a.Match("").Succes());
+            Assert.True(a.Match("").Success());
             Assert.Equal("", a.Match("").RemainingText());
         }
        
@@ -19,7 +19,7 @@ namespace Classes.Tests
         {
             var a = new List(new Range('0', '9'), new Character(','));
 
-            Assert.True(a.Match("1,2,3").Succes());
+            Assert.True(a.Match("1,2,3").Success());
             Assert.Equal("", a.Match("1,2,3").RemainingText());
         }
 
@@ -28,7 +28,7 @@ namespace Classes.Tests
         {
             var a = new List(new Range('0', '9'), new Character(','));
 
-            Assert.True(a.Match("1,2,3,").Succes());
+            Assert.True(a.Match("1,2,3,").Success());
             Assert.Equal(",", a.Match("1,2,3,").RemainingText());
         }
 
@@ -37,7 +37,7 @@ namespace Classes.Tests
         {
             var a = new List(new Range('0', '9'), new Character(','));
 
-            Assert.True(a.Match("1a").Succes());
+            Assert.True(a.Match("1a").Success());
             Assert.Equal("a", a.Match("1a").RemainingText());
         }
 
@@ -49,7 +49,7 @@ namespace Classes.Tests
             var separator = new Sequence(whitespace, new Character(';'), whitespace);
             var list = new List(digits, separator);
 
-            Assert.True(list.Match("1; 22  ;\n 333 \t; 22").Succes());
+            Assert.True(list.Match("1; 22  ;\n 333 \t; 22").Success());
             Assert.Equal("", list.Match("1; 22  ;\n 333 \t; 22").RemainingText());
         }
 
@@ -61,7 +61,7 @@ namespace Classes.Tests
             var separator = new Sequence(whitespace, new Character(';'), whitespace);
             var list = new List(digits, separator);
 
-            Assert.True(list.Match("1 \n;").Succes());
+            Assert.True(list.Match("1 \n;").Success());
             Assert.Equal(" \n;", list.Match("1 \n;").RemainingText());
         }
     }

@@ -11,7 +11,7 @@ namespace Classes.Tests
             var sequence = new Sequence(
                 new Character('a')
                 );
-            Assert.False(sequence.Match("").Succes());
+            Assert.False(sequence.Match("").Success());
             Assert.Equal("", sequence.Match("").RemainingText());
         }
 
@@ -22,7 +22,7 @@ namespace Classes.Tests
             new Character('a'),
             new Character('b')
             );
-            Assert.True(ab.Match("abcd").Succes());
+            Assert.True(ab.Match("abcd").Success());
             Assert.Equal("cd", ab.Match("abcd").RemainingText());
         }
 
@@ -33,7 +33,7 @@ namespace Classes.Tests
             new Character('a'),
             new Character('b')
             );
-            Assert.False(ab.Match("ax").Succes());
+            Assert.False(ab.Match("ax").Success());
             Assert.Equal("ax", ab.Match("ax").RemainingText());
         }
 
@@ -47,7 +47,7 @@ namespace Classes.Tests
             new Character('c')
             );
 
-            Assert.True(abc.Match("abcd").Succes());
+            Assert.True(abc.Match("abcd").Success());
             Assert.Equal("d", abc.Match("abcd").RemainingText());
         }
 
@@ -64,7 +64,7 @@ namespace Classes.Tests
             new Character('c')
             );
 
-            Assert.False(abc.Match("def").Succes());
+            Assert.False(abc.Match("def").Success());
             Assert.Equal("def", abc.Match("def").RemainingText());
         }
 
@@ -83,7 +83,7 @@ namespace Classes.Tests
                     hex,
                     hex,
                     hex));
-            Assert.True(hexSq.Match("u1234").Succes());
+            Assert.True(hexSq.Match("u1234").Success());
             Assert.Equal("", hexSq.Match("u1234").RemainingText());
         }
 
@@ -102,7 +102,7 @@ namespace Classes.Tests
                     hex,
                     hex,
                     hex));
-            Assert.True(hexSq.Match("uabcdef").Succes());
+            Assert.True(hexSq.Match("uabcdef").Success());
             Assert.Equal("ef", hexSq.Match("uabcdef").RemainingText());
         }
 
@@ -121,7 +121,7 @@ namespace Classes.Tests
                     hex,
                     hex,
                     hex));
-            Assert.True(hexSq.Match("uB005 ab").Succes());
+            Assert.True(hexSq.Match("uB005 ab").Success());
             Assert.Equal(" ab", hexSq.Match("uB005 ab").RemainingText());
         }
     }

@@ -6,7 +6,7 @@ namespace Classes
 {
     public interface IMatch
     {
-        bool Succes();
+        bool Success();
         string RemainingText();
     }
 }

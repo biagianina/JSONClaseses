@@ -12,7 +12,7 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.False(digit.Match("").Succes());
+            Assert.False(digit.Match("").Success());
             Assert.Equal("", digit.Match("").RemainingText());
         }
 
@@ -23,8 +23,18 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.True(digit.Match("012").Succes());
+            Assert.True(digit.Match("012").Success());
             Assert.Equal("12", digit.Match("012").RemainingText());
+        }
+
+        [Fact]
+        public void ReturnsTrueForA()
+        {
+            var digit = new Choice(
+                new Many(new Character('1'))
+                );
+            Assert.True(digit.Match("112").Success());
+            Assert.Equal("2", digit.Match("112").RemainingText());
         }
 
         [Fact]
@@ -34,7 +44,7 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.True(digit.Match("12").Succes());
+            Assert.True(digit.Match("12").Success());
             Assert.Equal("2", digit.Match("12").RemainingText());
         }
 
@@ -45,7 +55,7 @@ namespace Classes.Tests
                 new Character('0'),
                 new Range('1', '9')
                 );
-            Assert.False(digit.Match("a12").Succes());
+            Assert.False(digit.Match("a12").Success());
             Assert.Equal("a12", digit.Match("a12").RemainingText());
         }
 
@@ -63,7 +73,7 @@ namespace Classes.Tests
                     new Range('A', 'F')
                     )
                   );
-            Assert.False(hex.Match("G12").Succes());
+            Assert.False(hex.Match("G12").Success());
             Assert.Equal("G01", hex.Match("G01").RemainingText());
         }
     }
