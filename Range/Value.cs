@@ -18,30 +18,34 @@ namespace Classes
              new Text("null")
             );
 
-            var whitespaces = new Many(new Any(" \b\n\r\t"));
+            var whitespaces = new Many(new Any(" \n\r\t"));
 
             var validValue = new Sequence(whitespaces, value, whitespaces);
 
             var arrayValue = new List(validValue, new Character(','));
 
-            var objectValue = new Sequence(new String(), new Character(':'), validValue);
+            var objectValue = new Sequence(new String(), whitespaces, new Character(':'), validValue);
 
             var array = new Sequence(
+                whitespaces,
                 new Character('['),
                 whitespaces,
                 arrayValue,
                 whitespaces,
-                new Character(']')
+                new Character(']'),
+                whitespaces
                 );
 
            value.Add(array);
 
            var objects = new Sequence(
+               whitespaces,
                new Character('{'),
                whitespaces,
                new List(objectValue, new Sequence(new Character(','), whitespaces)),
                whitespaces,
-               new Character('}'));
+               new Character('}'),
+               whitespaces);
 
             value.Add(objects);
 
