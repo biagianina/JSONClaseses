@@ -13,10 +13,10 @@ namespace Classes
             var quotation = new Character('"');
 
             var character = new Choice(
-                new Range((char)31, (char)33),
-                new Range((char)35, (char)46),
-                new Range((char)48, (char)91),
-                new Range((char)93, (char)127)
+                new Range(' ', '!'),
+                new Range('#', '.'),
+                new Range('0', '['),
+                new Range(']', (char)ushort.MaxValue)
                 );
 
             var hex = new Choice(
@@ -38,7 +38,7 @@ namespace Classes
                 new Character('\\'), 
                 new Choice(escapeCharacters, unicode));
 
-            var text = new OneOrMore(
+            var text = new Many(
                     new Choice(
                         character,
                         validEscapeCharacters));

@@ -6,6 +6,14 @@ namespace Classes.Tests
     public class StringTests
     {
         [Fact]
+        public void ReturnsTrueAndEmptyForEmptyCorrectString()
+        {
+            var pattern = new String();
+            Assert.True(pattern.Match("\"\"").Success());
+            Assert.Equal("", pattern.Match("\"\"").RemainingText());
+        }
+
+        [Fact]
         public void ReturnsTrueAndEmptyForOneCharacterString()
         {
             var pattern = new String();
@@ -70,11 +78,11 @@ namespace Classes.Tests
         }
 
         [Fact]
-        public void ReturnsFalseAndTextForNotPreceededByEscapecharacterQuotationString()
+        public void ReturnsTrueAndQuotationForNotPreceededByEscapecharacterQuotationString()
         {
             var pattern = new String();
-            Assert.False(pattern.Match("\"\"\"").Success());
-            Assert.Equal("\"\"\"", pattern.Match("\"\"\"").RemainingText());
+            Assert.True(pattern.Match("\"\"\"").Success());
+            Assert.Equal("\"", pattern.Match("\"\"\"").RemainingText());
         }
 
         [Fact]
