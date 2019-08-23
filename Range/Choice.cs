@@ -6,7 +6,7 @@ namespace Classes
 {
     public class Choice : IPattern
     {
-        readonly IPattern[] patterns;
+        IPattern[] patterns;
 
         public Choice(params IPattern[] patterns)
         {
@@ -25,6 +25,12 @@ namespace Classes
             }
 
             return new Match(false, text);
+        }
+
+        public void Add(IPattern patternToAdd)
+        {
+            Array.Resize(ref patterns, patterns.Length + 1);
+            patterns[patterns.Length - 1] = patternToAdd;
         }
 
     }

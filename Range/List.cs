@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Classes
 {
-    public class List
+    public class List : IPattern
     {
         readonly IPattern pattern;
 
