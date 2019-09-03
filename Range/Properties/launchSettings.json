@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Classes": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\GIANINA\\Desktop\\JSON.txt"
+    }
+  }
+}

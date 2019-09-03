@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Classes
 {
@@ -6,7 +7,18 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if (args.Length > 0)
+            {
+                foreach (Object obj in args)
+                {
+                    var text = File.ReadAllText(obj.ToString());
+                    var json = new Value();
+                    Console.WriteLine(json.Match(text).Success());
+                    Console.WriteLine(json.Match(text).RemainingText());
+                }
+            }
+
+            Console.Read();
         }
     }
 }
