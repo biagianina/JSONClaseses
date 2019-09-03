@@ -13,8 +13,15 @@ namespace Classes
                 {
                     var text = File.ReadAllText(obj.ToString());
                     var json = new Value();
-                    Console.WriteLine(json.Match(text).Success());
-                    Console.WriteLine(json.Match(text).RemainingText());
+
+                    if (string.IsNullOrEmpty(json.Match(text).RemainingText()))
+                    {
+                        Console.WriteLine("Valid");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid");
+                    }
                 }
             }
 
