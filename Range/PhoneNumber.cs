@@ -10,41 +10,37 @@ namespace Classes
         
         public PhoneNumber()
         {
+            var digit = new Range('0', '9');
+            var zero = new Character('0');
+            var threeDigits = new Sequence(
+                    digit,
+                    digit,
+                    digit);
+
             var countryPrefix = new Choice(
                 new Sequence(
-                    new Character('0'),
-                    new Character('0'),
-                    new Range('1', '9'),
-                    new Range('0', '9')
+                    zero, zero, digit, digit
                     ),
                 new Sequence(
                     new Character('+'),
-                    new Range('1', '9'),
-                    new Range('0', '9')
+                    digit,
+                    digit
                     ));
 
             var prefix = new Sequence(
                 new Choice(
                     countryPrefix,
-                    new Character('0')),
-                new Sequence(
-                    new Range('1', '9'),
-                    new Range('1', '9'),
-                    new Range('1', '9')));
+                    zero),
+                threeDigits
+                );
 
             var number = new Sequence(prefix,
                 new Optional(new Character('-')),
-                new Sequence(new Sequence(
-                    new Range('1', '9'),
-                    new Range('1', '9'),
-                    new Range('1', '9'),
+                new Sequence(
+                   threeDigits,
                     new Optional(new Character('.')),
-                    new Sequence(
-                    new Range('1', '9'),
-                    new Range('1', '9'),
-                    new Range('1', '9'))
-                        )
-                    )
+                   threeDigits
+                 )
                 );
 
             pattern = number;
